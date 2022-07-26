@@ -1,0 +1,37 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ThreadpoolEx implements Runnable{
+    String name;
+    ThreadpoolEx(String name)
+    {
+        this.name = name;
+    }
+    public void run() {
+        System.out.println(name + "..Jobs Started by " + Thread.currentThread().getName());
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(name + "..Job completed by " + Thread.currentThread().getName());
+    }
+}
+class ExecutorDemo
+{
+    public static void main(String [] args)
+    {
+        ThreadpoolEx[] jobs = {new ThreadpoolEx("Fathima"),
+                new ThreadpoolEx("Rasool"),
+                new ThreadpoolEx("Hassana"),
+                new ThreadpoolEx("Parveen"),
+                new ThreadpoolEx("Shereen"),
+                new ThreadpoolEx("Murshidha")};
+        ExecutorService service = Executors.newFixedThreadPool(4);
+        for(ThreadpoolEx job : jobs)
+        {
+            service.submit(job);
+        }
+        service.shutdown();
+    }
+}
