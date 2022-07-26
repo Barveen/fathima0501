@@ -1,0 +1,143 @@
+public class Rice extends Thread{
+    public void run()
+    {
+        System.out.println("Soak the rice");
+        Thread.yield();
+        Thread.currentThread().setPriority(3);
+        System.out.println("Rice Ready");
+    }
+}
+
+public class Chicken extends Thread {
+    public void run()
+    {
+        System.out.println("Apply masala to chicken");
+        Thread.yield();
+        Thread.currentThread().setPriority(2);
+        System.out.println("Chicken Ready");
+    }
+}
+
+class GingerGarlicPaste extends Thread{
+    public void run()
+    {
+        System.out.println("cut ginger, garlic and make a paste");
+    }
+}
+
+class  Onion extends Thread
+{
+    public void run()
+    {
+        System.out.println("Cut Onions");
+    }
+}
+
+class  Tomato extends Thread
+{
+    public void run()
+    {
+        System.out.println("Cut Tomato");
+    }
+}
+class  Leaves extends Thread
+{
+    public void run()
+    {
+        System.out.println("Pluck curryLeaves and mint Leaves");
+    }
+}
+
+class Biriyani extends Thread
+{
+    public void run()
+    {
+        System.out.println("Take vessel and on stove");
+        System.out.println("Started heating the vessel");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Add Ghee , oil ");
+        System.out.println("Wait for the Oil to heat");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Add pattai, kiram, Biriyani leaves");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Add onion");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Add Ginger garlic paste");
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Add Tomato");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Add Mutton and add mutton masala and salt");
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Add rice and water");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Close the cooker and wait for 4 whistle");
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Your favourite Biriyani ready");
+
+    }
+}
+
+public class Main {
+    public static void main(String [] args) throws InterruptedException {
+        Rice thread1 = new Rice();
+        Chicken thread2 = new Chicken();
+        Onion thread3 = new Onion();
+        Tomato thread4 = new Tomato();
+        Leaves thread5 = new Leaves();
+        GingerGarlicPaste thread6 = new GingerGarlicPaste();
+        Biriyani thread7 = new Biriyani();
+        thread1.setPriority(10);
+        thread2.setPriority(9);
+        thread3.setPriority(8);
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+        thread5.start();
+        thread6.start();
+        thread1.join();
+        thread2.join();
+        thread3.join();
+        thread4.join();
+        thread5.join();
+        thread6.join();
+        thread7.setPriority(Thread.MIN_PRIORITY);
+        thread7.start();
+    }
+}
