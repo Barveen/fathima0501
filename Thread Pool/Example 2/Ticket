@@ -1,0 +1,33 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class Ticket {
+    public static void main(String[] args) throws InterruptedException {
+        TicketCounter ticketCounter = new TicketCounter();
+        TrainTicket[] jobs = {new TrainTicket(ticketCounter, "Fathima", 3),
+                new TrainTicket(ticketCounter, "Rasool", 3),
+                new TrainTicket(ticketCounter, "Hassana", 3),
+                new TrainTicket(ticketCounter, "Parveen", 3),
+                new TrainTicket(ticketCounter, "Murshidha", 3),
+                new TrainTicket(ticketCounter, "Ajmal"),
+                new TrainTicket(ticketCounter, "Hari")
+        };
+        ExecutorService service = Executors.newFixedThreadPool(2);
+        for (TrainTicket job : jobs) {
+            service.submit(job);
+        }
+        service.shutdown();
+    }
+}
+
+       /*TrainTicket t1 = new TrainTicket(ticketCounter, "Fathima", 3);
+        TrainTicket t2 = new TrainTicket(ticketCounter, "Parveen", 3);
+        TrainTicket t3 = new TrainTicket(ticketCounter, "Hassana", 3);
+        TrainTicket t4 = new TrainTicket(ticketCounter, "Shereen", 3);
+        TrainTicket t5 = new TrainTicket(ticketCounter, "Jessima", 3);
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        t5.start();
+    }*/
