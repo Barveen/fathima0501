@@ -1,0 +1,18 @@
+public class PrintScreen {
+    String t1 = "\u001B[1m\u001B[32m";
+    String t2 = "\u001b[33m";
+    String t3 = "\u001b[36m";
+    String Reset = "\u001b[0m";
+
+    public void PrintLine(String msg, String tno){
+        switch (tno) {
+            case "t1" -> {
+                System.out.println("\n");
+                System.out.println(t1 + msg + Reset);
+            }
+            case "t2" -> System.out.println(t2 + "Thread 2:" + Reset + msg);
+            case "t3" -> System.out.println(t3 + "Thread 3:" + Reset + msg);
+        }
+
+    }
+}
