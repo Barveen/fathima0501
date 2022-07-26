@@ -1,0 +1,16 @@
+public class TrainTicket extends Thread {
+    private final TicketCounter ticketCounter;
+    private final String passengerName;
+    private int noOfSeats;
+
+    public TrainTicket(TicketCounter ticketCounter, String passengerName, int noOfSeats) {
+        this.ticketCounter = ticketCounter;
+        this.passengerName = passengerName;
+        this.noOfSeats = noOfSeats;
+    }
+    
+    public void run()
+    {
+        ticketCounter.bookTicket(passengerName,noOfSeats);
+    }
+}
