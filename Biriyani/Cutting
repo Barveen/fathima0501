@@ -1,0 +1,39 @@
+public class Cutting extends Thread{
+    PrintScreen pl = new PrintScreen();
+
+    public void run()
+    {
+        while(App.onion < 1 || App.gingerPaste < 1 || App.veg < 1){
+            if(App.onion == 0){
+                pl.PrintLine("Cut Onions", "t2");
+                sleep();
+                App.onion = 1;
+            }
+            else if(App.gingerPaste == 0){
+                pl.PrintLine("Cut Ginger and garlic", "t2");
+                sleep();
+                App.gingerPaste = 1;
+            }
+            else if(App.veg == 0){
+                pl.PrintLine("Cut Tomato", "t2");
+                sleep();
+                pl.PrintLine("Cut chilly and Mint leaves", "t2");
+                sleep();
+                App.veg = 1;
+            }
+        }
+
+
+    }
+public void sleep()
+{
+    try
+    {
+        Thread.sleep(3000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+}
+
+}
+
