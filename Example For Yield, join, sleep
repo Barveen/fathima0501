@@ -1,130 +1,200 @@
 public class Rice extends Thread{
     public void run()
     {
-        System.out.println("Soak the rice");
+        System.out.println(BGColour.ITALIC+"Add 2 cups Basmati rice and rinse thrice ");
+        System.out.println("Soak the rice for 30 minutes"+BGColour.RESET);
         Thread.yield();
         Thread.currentThread().setPriority(3);
-        System.out.println("Rice Ready");
+        System.out.println(BGColour.MAGENTA+" * Rice Ready"+BGColour.RESET);
     }
 }
+
+
 
 public class Chicken extends Thread {
+    
     public void run()
     {
-        System.out.println("Apply masala to chicken");
+        System.out.println(BGColour.GREEN_BOLD_BRIGHT+BGColour.UNDERLINE+"Apply masala to chicken" +BGColour.RESET+BGColour.ITALIC+BGColour.CYAN+
+                "\n--> Take Half Kg Chicken."+
+                "\n--> Make few slits on all the chicken pieces and add to a large bowl"+
+                "\n--> Add 3 table spoons curd"+
+                "\n--> 1 1/4 table spoons ginger garlic paste"+
+                "\n--> 1 table spoon Garam masala and half teaspoon salt" +
+                "\n--> 1/4 teaspoon turmeric & 1/2 red chilli powder, " +
+                "\n--> 1 tablespoon lemon juice Mix everything and marinate the chicken"+BGColour.RESET);
         Thread.yield();
-        Thread.currentThread().setPriority(2);
-        System.out.println("Chicken Ready");
+        Thread.currentThread().setPriority(MIN_PRIORITY);
+        System.out.println(BGColour.MAGENTA+" * Chicken Ready"+BGColour.RESET);
     }
 }
 
+
+
 class GingerGarlicPaste extends Thread{
+
     public void run()
     {
-        System.out.println("cut ginger, garlic and make a paste");
+        Thread.currentThread().setPriority(MAX_PRIORITY);
+        System.out.println(BGColour.GREEN_BOLD_BRIGHT+BGColour.UNDERLINE+"GingerGarlic"+BGColour.RESET+BGColour.BLUE+BGColour.ITALIC+"\n * cut ginger, garlic ");
+        System.out.println(" * Make a paste of ginger and garlic"+BGColour.RESET);
+        Thread.yield();
+        Thread.currentThread().setPriority(9);
+        System.out.println(BGColour.MAGENTA+BGColour.ITALIC+" * Ginger garlic paste is ready"+BGColour.RESET);
     }
 }
+
+
 
 class  Onion extends Thread
 {
+    public static final String YELLOW_BOLD = "\033[1;33m";
     public void run()
     {
-        System.out.println("Cut Onions");
+        System.out.println(YELLOW_BOLD+"Cut Onions"+BGColour.RESET);
+        Thread.yield();
+        Thread.currentThread().setPriority(MIN_PRIORITY);
+        System.out.println(BGColour.MAGENTA+" * Cutting onion finished"+BGColour.RESET);
+
     }
 }
+
+
 
 class  Tomato extends Thread
 {
     public void run()
     {
-        System.out.println("Cut Tomato");
+        System.out.println(Onion.YELLOW_BOLD+"Cut Tomato"+BGColour.RESET);
+        try{
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
+
+
+
 class  Leaves extends Thread
 {
     public void run()
     {
-        System.out.println("Pluck curryLeaves and mint Leaves");
+        System.out.println(Onion.YELLOW_BOLD+"Pluck curryLeaves and mint Leaves"+BGColour.RESET);
     }
 }
-
-class Biriyani extends Thread
+class Raita extends Thread
 {
     public void run()
     {
-        System.out.println("Take vessel and on stove");
-        System.out.println("Started heating the vessel");
+        System.out.println(BGColour.GREEN_BOLD_BRIGHT+BGColour.UNDERLINE+"Raita"+BGColour.RESET);
+        System.out.println(BGColour.ITALIC+"Take one bowl and add chopped onion and add curd , chilly and mix well"+BGColour.RESET);
+        Thread.yield();
+        Thread.currentThread().setPriority(1);
+        System.out.println(BGColour.MAGENTA+"Raita is ready " +BGColour.RESET);
+    }
+}
+
+
+class Biriyani extends Thread
+{
+    public static final String GREEN = "\033[0;32m";
+    public void run()
+    {
+        System.out.println(BGColour.GREEN_BOLD_BRIGHT+BGColour.UNDERLINE+"Biryani"+BGColour.RESET);
+        System.out.println(Onion.YELLOW_BOLD+BGColour.ITALIC+"Heat ghee or oil in a heavy bottom pot or pressure cooker"+BGColour.RESET);
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Add Ghee , oil ");
-        System.out.println("Wait for the Oil to heat");
+        System.out.println(BGColour.YELLOW+BGColour.HIGH_INTENSITY+"""
+                Add --> 1 bay leaf,
+                   --> Green cardamoms
+                   --> 6 cloves
+                   --> 1 inch cinnamon piece
+                   --> 1 Star anise
+                   --> 3/4 teaspoon shahi jeer
+                   --> 1 Strand mace\s"""+BGColour.RESET);
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Add pattai, kiram, Biriyani leaves");
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Add onion");
+        System.out.println(BGColour.CYAN+BGColour.ITALIC+"--> Add thinly sliced onions. On a medium heat, " +
+                "\n--> Fry them until it changes to light brown"+ BGColour.RESET);
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Add Ginger garlic paste");
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Add Tomato");
+        System.out.println(BGColour.CYAN+BGColour.ITALIC+"--> Add Ginger garlic paste" +
+                "\n--> And wait for the raw smell to go out"+BGColour.RESET);
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Add Mutton and add mutton masala and salt");
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Add rice and water");
+        System.out.println(BGColour.CYAN+BGColour.ITALIC+"-->Add the chicken. Cover and cook completely cooked "+BGColour.RESET);
+        Thread.yield();
+        System.out.println(BGColour.MAGENTA+BGColour.ITALIC+"""
+             Add--_1/4 curd\s
+                --> 1 teaspoon biryani masala &  1/2 teaspoon Red chili powder
+                --> Add Tomato and mint leaves
+                --> Mix everything well"""+BGColour.RESET);
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Close the cooker and wait for 4 whistle");
+        System.out.println(BGColour.CYAN+BGColour.ITALIC+"--> Add rice and mix well"+BGColour.RESET);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(BGColour.CYAN+BGColour.ITALIC+"--> Finally  cover the cooker and wait for 2 whistle"+BGColour.RESET);
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Your favourite Biriyani ready");
+        System.out.println(GREEN+BGColour.ITALIC+" ** Finally our favourite Biriyani is ready Enjoy with Raita ** ");
+        System.out.println(" ** Serve Chicken Biryani - top layer with rice and bottom layer with chicken ** "+BGColour.RESET);
 
     }
 }
 
+
+class BGColour
+{
+    public static final String HIGH_INTENSITY    = "\u001B[1m";
+    public static final String	UNDERLINE	     = "\u001B[4m";
+    public static final String YELLOW            = "\033[0;33m";
+    public static final String	BLUE	         = "\u001B[34m";
+    public static final String GREEN_BOLD_BRIGHT = "\033[1;92m";
+    public static final String RESET             = "\033[0m";
+    public static final String	ITALIC			 = "\u001B[3m";
+    public static final String	CYAN			 = "\u001B[36m";
+    public static final String	MAGENTA			 = "\u001B[35m";
+}
+
+
+
+
 public class Main {
     public static void main(String [] args) throws InterruptedException {
-        Rice thread1 = new Rice();
-        Chicken thread2 = new Chicken();
-        Onion thread3 = new Onion();
-        Tomato thread4 = new Tomato();
-        Leaves thread5 = new Leaves();
-        GingerGarlicPaste thread6 = new GingerGarlicPaste();
+        GingerGarlicPaste thread1 = new GingerGarlicPaste();
+        Rice thread2 = new Rice();
+        Chicken thread3 = new Chicken();
+        Onion thread4 = new Onion();
+        Tomato thread5 = new Tomato();
+        Leaves thread6 = new Leaves();
         Biriyani thread7 = new Biriyani();
-        thread1.setPriority(10);
-        thread2.setPriority(9);
-        thread3.setPriority(8);
+        Raita thread8 =  new Raita();
+        thread1.setPriority(Thread.MAX_PRIORITY);
+        thread2.setPriority(8);
+        thread3.setPriority(7);
         thread1.start();
         thread2.start();
         thread3.start();
@@ -139,5 +209,55 @@ public class Main {
         thread6.join();
         thread7.setPriority(Thread.MIN_PRIORITY);
         thread7.start();
+        thread8.start();
+
     }
 }
+
+/*Output:
+         GingerGarlic
+         * cut ginger, garlic 
+         * Make a paste of ginger and garlic
+         * Ginger garlic paste is ready
+        Add 2 cups Basmati rice and rinse thrice 
+        Soak the rice for 30 minutes
+        Apply masala to chicken
+        --> Take Half Kg Chicken.
+        --> Make few slits on all the chicken pieces and add to a large bowl
+        --> Add 3 table spoons curd
+        --> 1 1/4 table spoons ginger garlic paste
+        --> 1 table spoon Garam masala and half teaspoon salt1/4 teaspoon turmeric & 1/2 red chilli powder, 1 tablespoon lemon juice Mix everything and marinate the chicken
+         * Rice Ready
+        Pluck curryLeaves and mint Leaves
+        Cut Tomato
+        Cut Onions
+         * Cutting onion finished
+         * Chicken Ready
+        Biryani
+        Heat ghee or oil in a heavy bottom pot or pressure cooker
+        Raita
+        Take one bowl and add chopped onion and add curd , chilly and mix well
+        Raita is ready 
+        Add --> 1 bay leaf,
+           --> Green cardamoms
+           --> 6 cloves
+           --> 1 inch cinnamon piece
+           --> 1 Star anise
+           --> 3/4 teaspoon shahi jeer
+           --> 1 Strand mace 
+        --> Add thinly sliced onions. On a medium heat, 
+        --> Fry them until it changes to light brown
+        --> Add Ginger garlic paste
+        --> And wait for the raw smell to go out
+        -->Add the chicken. Cover and cook completely cooked 
+        Add--_1/4 curd 
+           --> 1 teaspoon biryani masala &  1/2 teaspoon Red chili powder
+           --> Add Tomato and mint leaves
+           --> Mix everything well
+        --> Add rice and mix well
+        --> Finally  cover the cooker and wait for 2 whistle
+         ** Finally our favourite Biriyani is ready Enjoy with Raita ** 
+         ** Serve Chicken Biryani - top layer with rice and bottom layer with chicken ** 
+        */
+
+
