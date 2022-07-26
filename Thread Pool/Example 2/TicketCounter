@@ -1,0 +1,23 @@
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class TicketCounter {
+     int availableSeats = 12;
+     Lock lock = new ReentrantLock();
+
+    public  void bookTicket(String passengerName,int numberOfSeats)
+    {
+        lock.lock();
+        try {
+            if (availableSeats >= numberOfSeats && numberOfSeats > 0) {
+                System.out.println("Hi " + passengerName + " : " + numberOfSeats + " seats booked successfully");
+                availableSeats = availableSeats - numberOfSeats;
+
+            } else {
+                System.out.println("Hi " + passengerName + " seats not available");
+            }
+        }finally {
+            lock.unlock();
+        }
+    }
+}
