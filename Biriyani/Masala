@@ -1,0 +1,26 @@
+public class Masala extends Thread{
+    PrintScreen pl = new PrintScreen();
+    Cutting cutting = new Cutting();
+
+    public void run()
+    {
+        while(App.gingerPaste < 2 || App.mutton < 1 || App.rice < 1){
+
+            if(App.gingerPaste == 1) {
+                pl.PrintLine("Prepare ginger garlic paste", "t3");
+                cutting.sleep();
+                App.gingerPaste = 2;
+            }
+            else if(App.mutton == 0) {
+                pl.PrintLine("Apply mutton masala to mutton", "t3");
+                cutting.sleep();
+                App.mutton = 1;
+            }
+            else if(App.rice == 0) {
+                pl.PrintLine("Soak rice", "t3");
+                cutting.sleep();
+                App.rice = 1;
+            }
+        }
+    }
+}
