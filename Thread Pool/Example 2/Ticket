@@ -8,9 +8,7 @@ public class Ticket {
                 new TrainTicket(ticketCounter, "Rasool", 3),
                 new TrainTicket(ticketCounter, "Hassana", 3),
                 new TrainTicket(ticketCounter, "Parveen", 3),
-                new TrainTicket(ticketCounter, "Murshidha", 3),
-                new TrainTicket(ticketCounter, "Ajmal"),
-                new TrainTicket(ticketCounter, "Hari")
+                new TrainTicket(ticketCounter, "Murshidha", 3)
         };
         ExecutorService service = Executors.newFixedThreadPool(2);
         for (TrainTicket job : jobs) {
