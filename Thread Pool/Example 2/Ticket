@@ -31,3 +31,11 @@ public class Ticket {
         t4.start();
         t5.start();
     }*/
+    
+    /* Output :
+    Hi Fathima : 3 seats booked successfully
+    Hi Rasool  : 3 seats booked successfully
+    Hi Hassana : 3 seats booked successfully
+    Hi Parveen : 3 seats booked successfully
+    Hi Murshidha seats not available */
+
