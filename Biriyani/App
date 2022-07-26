@@ -1,0 +1,69 @@
+public class App {
+    static volatile int onion = 0;
+    static volatile int gingerPaste = 0;
+    static volatile int veg = 0;
+    static volatile int mutton = 0;
+    static volatile int rice = 0;
+    static int status = 0;
+    static PrintScreen pl = new PrintScreen();
+
+    public static void main(String [] args) {
+
+        Cutting cutting = new Cutting();
+        Masala masala = new Masala();
+        cutting.start();
+        masala.start();
+
+        pl.PrintLine("Take vessel and on stove", "t1");
+        while(status < 6){
+            if(status == 0) {
+                System.out.println("Add Ghee , oil ");
+                System.out.println("Started heating the vessel");
+                System.out.println("Add pattai, kiram, Biriyani leaves");
+                status = 1;
+            }
+
+            else if(onion == 1 && status == 1) {
+                pl.PrintLine("Adding Chopped Onions", "t1");
+                sleep();
+                status = 2;
+            }
+
+            else if(gingerPaste == 2 && status == 2) {
+                pl.PrintLine("Adding Ginger-Garlic Paste", "t1");
+                sleep();
+                status = 3;
+            }
+
+            else if(veg == 1 && status == 3) {
+                pl.PrintLine("Add Tomato", "t1");
+                sleep();
+                status = 4;
+            }
+
+            else if(mutton == 1 && status == 4) {
+                pl.PrintLine("Add Mutton and add mutton masala and salt", "t1");
+                sleep();
+                status = 5;
+            }
+
+            else if(rice == 1 && status == 5) {
+                pl.PrintLine("Add rice and water", "t1");
+                sleep();
+                pl.PrintLine("Close the cooker and wait for 4 whistle", "t1");
+                sleep();
+                pl.PrintLine("Your favourite Biriyani ready", "t1");
+                status = 6;
+            }
+        }
+
+    }
+    public static void sleep()
+    {
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
